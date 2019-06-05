@@ -53,5 +53,21 @@ $ docker history docker
 Example to see how the docker:ubuntu image was built:
 $ docker history ubuntu
 
+##docker kill
+Kill one or more running containers
+link : https://docs.docker.com/engine/reference/commandline/kill/
+
+Example sends the default KILL signal to the container named my_container:
+$ docker kill my_container
+$ docker kill ubuntu
+
+##docker run
+Run a command in a new container
+link : https://docs.docker.com/engine/reference/commandline/run/
+
+Example command for running bash on ubuntu
+$ docker run --name test -it ubuntu
+
+
 
 
