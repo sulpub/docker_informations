@@ -34,7 +34,7 @@ $ docker rm --force ubuntu
 Remove all stopped containers:
 $ docker rm $(docker ps -a -q)
 
-##docker ps
+## docker ps
 List containers
 link : https://docs.docker.com/engine/reference/commandline/ps/
 
@@ -44,7 +44,7 @@ $ docker ps
 Example to see all containers with -a flag:
 $ docker ps -a
 
-##docker history
+## docker history
 Show the history of an image
 
 Example to see how the docker:latest image was built:
@@ -53,7 +53,7 @@ $ docker history docker
 Example to see how the docker:ubuntu image was built:
 $ docker history ubuntu
 
-##docker kill
+## docker kill
 Kill one or more running containers
 link : https://docs.docker.com/engine/reference/commandline/kill/
 
@@ -61,7 +61,7 @@ Example sends the default KILL signal to the container named my_container:
 $ docker kill my_container
 $ docker kill ubuntu
 
-##docker run
+## docker run
 Run a command in a new container
 link : https://docs.docker.com/engine/reference/commandline/run/
 
