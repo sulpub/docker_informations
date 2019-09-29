@@ -68,6 +68,12 @@ link : https://docs.docker.com/engine/reference/commandline/run/
 Example command for running bash on ubuntu
 $ docker run --name test -it ubuntu
 
+# Ubuntu on windows 10 with docker
+Run this command in windows terminal after installing docker desktop
 
+docker run --name ubvnc -p 6080:80 -p 5900:5900 dorowu/ubuntu-desktop-lxde-vnc:bionic
 
+To see the ubuntu desktop run these command
+1. Open your webrowser and open this link  http://127.0.0.1:6080/#/ 
+2. Install Tight VNC Viewer and connect to this link "127.0.0.1::5900"
 
