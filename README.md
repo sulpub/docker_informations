@@ -68,6 +68,15 @@ link : https://docs.docker.com/engine/reference/commandline/run/
 Example command for running bash on ubuntu
 $ docker run --name test -it ubuntu
 
+## docker images
+The docker images command returns a list of all images on your host. 
+To delete an image pass the ID returned by docker images to docker rmi command. 
+
+Example for deleting an image.
+$ sudo docker images    //for list images and know the image ID.
+$ sudo docker rmi -f image_ID
+
+
 # Ubuntu on windows 10 with docker
 Run this command in windows terminal after installing docker desktop
 
