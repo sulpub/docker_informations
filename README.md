@@ -74,7 +74,7 @@ To delete an image pass the ID returned by docker images to docker rmi command.
 
 Example for deleting an image.
 $ sudo docker images    //for list images and know the image ID.
-$ sudo docker rmi -f image_ID
+$ sudo docker rmi -f image_ID  //delete the container from the hard disk
 
 
 # Ubuntu on windows 10 with docker
@@ -82,7 +82,14 @@ Run this command in windows terminal after installing docker desktop
 
 docker run --name ubvnc -p 6080:80 -p 5900:5900 dorowu/ubuntu-desktop-lxde-vnc:bionic
 
-To see the ubuntu desktop run these command
+To see the ubuntu desktop run these commands:
 1. Open your webrowser and open this link  http://127.0.0.1:6080/#/ 
 2. Install Tight VNC Viewer and connect to this link "127.0.0.1::5900"
 
+For kill the container run:
+$ sudo docker kill ubvnc
+
+For restart the container make this:
+1. sudo docker ps -a      //for have the 
+2. sudo docker rm ubvnc   //name for delete NAME=ubvnc
+3. docker run --name ubvnc -p 6080:80 -p 5900:5900 dorowu/ubuntu-desktop-lxde-vnc:bionic  //for restart the container
