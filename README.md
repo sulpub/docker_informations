@@ -2,87 +2,116 @@
 Docker information for beginner
 List of commands for using DOCKER.
 
+
 ## docker pull
 Pull an image or a repository from a registry on the official Docker Hub.
 link : https://docs.docker.com/engine/reference/commandline/pull/
 
 example for pull image of debian jessie:
-$ docker pull debian:jessie
+
+**$ docker pull debian:jessie**
 
 example for pull image of ubuntu:
-$ docker pull ubuntu
+
+**$ docker pull ubuntu**
 
 see the docker images installed:
-$ docker images
+
+**$ docker images**
 
 example for pull from a different registry:
-$ docker pull myregistry.local:5000/testing/test-image
+
+**$ docker pull myregistry.local:5000/testing/test-image**
 
 example for canceling a pull:
+
 Killing the docker pull process by pressing CTRL-c while it is running in a terminal, will terminate the pull operation.
+
+
 
 ## docker rm
 Remove one or more containers
 link : https://docs.docker.com/engine/reference/commandline/rm/
 
 example:
-$ docker rm /ubuntu
+
+**$ docker rm /ubuntu**
 
 example command will force-remove a running container:
-$ docker rm --force ubuntu
+
+**$ docker rm --force ubuntu**
 
 Remove all stopped containers:
-$ docker rm $(docker ps -a -q)
+
+**$ docker rm $(docker ps -a -q)**
+
+
 
 ## docker ps
 List containers
 link : https://docs.docker.com/engine/reference/commandline/ps/
 
 example for show all container that running:
-$ docker ps
+
+**$ docker ps**
 
 Example to see all containers with -a flag:
-$ docker ps -a
+
+**$ docker ps -a**
+
+
 
 ## docker history
 Show the history of an image
 
 Example to see how the docker:latest image was built:
-$ docker history docker
+
+**$ docker history docker**
 
 Example to see how the docker:ubuntu image was built:
-$ docker history ubuntu
+
+**$ docker history ubuntu**
+
+
 
 ## docker kill
 Kill one or more running containers
 link : https://docs.docker.com/engine/reference/commandline/kill/
 
 Example sends the default KILL signal to the container named my_container:
-$ docker kill my_container
-$ docker kill ubuntu
+**$ docker kill my_container**
+**$ docker kill ubuntu**
+
+
 
 ## docker run
 Run a command in a new container
 link : https://docs.docker.com/engine/reference/commandline/run/
 
 Example command for running bash on ubuntu
-$ docker run --name test -it ubuntu
+**$ docker run --name test -it ubuntu**
+
+
 
 ## docker images
 The docker images command returns a list of all images on your host. 
 To delete an image pass the ID returned by docker images to docker rmi command. 
 
 Example for deleting an image.
-$ sudo docker images    //for list images and know the image ID.
-$ sudo docker rmi -f image_ID  //delete the container from the hard disk
+
+**$ sudo docker images**    *//for list images and know the image ID.*
+**$ sudo docker rmi -f image_ID**  *//delete the container from the hard disk*
+
+
 
 
 # Ubuntu on windows 10 with docker
 Run this command in windows terminal after installing docker desktop
 
-docker run --name ubvnc -p 6080:80 -p 5900:5900 dorowu/ubuntu-desktop-lxde-vnc:bionic
+**docker run --name ubvnc -p 6080:80 -p 5900:5900 dorowu/ubuntu-desktop-lxde-vnc:bionic**
 
 To see the ubuntu desktop run these commands:
+
 1. Open your webrowser and open this link  http://127.0.0.1:6080/#/ 
 2. Install Tight VNC Viewer and connect to this link "127.0.0.1::5900"
 
@@ -90,6 +119,7 @@ For kill the container run:
 $ sudo docker kill ubvnc
 
 For restart the container make this:
-1. sudo docker ps -a      //for have the 
-2. sudo docker rm ubvnc   //name for delete NAME=ubvnc
-3. docker run --name ubvnc -p 6080:80 -p 5900:5900 dorowu/ubuntu-desktop-lxde-vnc:bionic  //for restart the container
+
+1. sudo docker ps -a      *//for have the NAME list*
+2. sudo docker rm ubvnc   *//name for delete NAME=ubvnc*
+3. docker run --name ubvnc -p 6080:80 -p 5900:5900 dorowu/ubuntu-desktop-lxde-vnc:bionic  *//for restart the container*
