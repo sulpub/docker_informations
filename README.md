@@ -132,4 +132,4 @@ Run this command to load svn submin access at http://192.168.0.8:8080/submin
 
 To change tha password for submin run this command
 
-**access http://example.com:8080/submin/password/admin/NX6UIpOvlab0B8QYQTKE1d4xQQ9qNl0XG1pkeUV8xg9bbcj1q4 to reset password**
+**access http://192.168.0.8:8080/submin/password/admin/NX6UIpOvlab0B8QYQTKE1d4xQQ9qNl0XG1pkeUV8xg9bbcj1q4 to reset password**
