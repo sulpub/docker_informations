@@ -123,3 +123,13 @@ For restart the container make this:
 1. sudo docker ps -a      *//for have the NAME list*
 2. sudo docker rm ubvnc   *//name for delete NAME=ubvnc*
 3. docker run --name ubvnc -p 6080:80 -p 5900:5900 dorowu/ubuntu-desktop-lxde-vnc:bionic  *//for restart the container*
+
+
+# Run SVN submin under windows with docker
+Run this command to load svn submin access at http://192.168.0.8:8080/submin
+
+**docker run -d -p "8080:80" -e "SUBMIN_HOSTNAME=192.168.0.8" -e "SUBMIN_EXTERNAL_PORT=8080" thaim/submin**
+
+To change tha password for submin run this command
+
+**access http://example.com:8080/submin/password/admin/NX6UIpOvlab0B8QYQTKE1d4xQQ9qNl0XG1pkeUV8xg9bbcj1q4 to reset password**
