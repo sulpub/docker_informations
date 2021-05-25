@@ -133,3 +133,22 @@ Run this command to load svn submin access at http://192.168.0.8:8080/submin
 To change tha password for submin run this command
 
 **access http://192.168.0.8:8080/submin/password/admin/NX6UIpOvlab0B8QYQTKE1d4xQQ9qNl0XG1pkeUV8xg9bbcj1q4 to reset password**
+
+
+# DOCKER application
+
+install WSL 2 under windows
+Install ubuntu package
+install dowker with using WSL 2
+
+## install node red 
+
+Run ubuntu shell under windows
+run this command for install node red
+```
+docker pull nodered/node-red
+```
+```
+```
+```
+
