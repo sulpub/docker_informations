@@ -185,7 +185,15 @@ apt update -y && apt upgrade -y
 docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 ```
 
-
+Stop image
+```
+//stop container
+docker stop name_image
+//start container
+docker start name_image
+//remove container
+docker rm name_container
+```
 
 
 
