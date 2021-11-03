@@ -148,7 +148,45 @@ run this command for install node red
 ```
 docker pull nodered/node-red
 ```
+
+# DOCKER RAPID COMMANDS
+
 ```
+run docker imagedocker run -d --net=host -p 1883:1883 -p 9001:9001 -v  $(pwd)/config/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf --name=mosquittoiotmachine --restart=always eclipse-mosquitto-pwd
 ```
+
+run a shell command for configuration
 ```
+docker exec -it mosquittoiotmachine /bin/sh
+```
+
+Commit an image with the shell modification
+```
+docker commit -m="Ajout d'un fichier" mosquittoiotmachine new-image-eclipse-mosquitto-pwd
+// -m for message of the commit
+// creat a new image
+```
+
+Erase image docker 
+```
+docker image ls -a
+//list all the image on the machine
+
+docker rmi image -f web_dev_web:latest mysql:8.0 php:7.3-apache
+//erase for example three images web, mysql and php
+```
+
+Example for access mysql with php docker
+```
+//Run the php docker
+//run the shell command
+docker exec -it php:7.3-apache /bin/sh
+apt update -y && apt upgrade -y
+docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+```
+
+
+
+
+
 
