@@ -137,9 +137,22 @@ To change tha password for submin run this command
 
 # DOCKER application
 
-install WSL 2 under windows
+install WSL 2 under windows : https://korben.info/installer-wsl2-windows-linux.html
+```
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
+reboot
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
+reboot
+Intaller distribution linux avce le market microsoft
+Si retour suivant installer le pakage windows : https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+Pour activer wsl 2 lancer la commande : 
+wsl --set-default-version 2
+wsl --list --verbose
+If you see version 1, activate with this command (example distribution ubuntu) :
+wsl --set-version ubuntu 2
+```
 Install ubuntu package
-install dowker with using WSL 2
+install docker with using WSL 2
 
 ## install node red 
 
@@ -148,6 +161,11 @@ run this command for install node red
 ```
 docker pull nodered/node-red
 ```
+run nodered container with this command 
+```
+docker run -it -p 1880:1880 -v myNodeREDdata:/data --name mynodered nodered/node-red
+```
+notes  : https://hub.docker.com/r/nodered/node-red/
 
 # DOCKER RAPID COMMANDS
 
