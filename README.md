@@ -215,9 +215,32 @@ Stop image
 docker stop name_image
 //start container
 docker start name_image
-//remove container
-docker rm name_container
 ```
+
+
+# Example commands
+
+## docker grafana
+**************************************************
+docker run -d --name=grafanaN1  --restart=always -p 3000:3000 grafana/grafana
+
+
+## docker portainer
+**************************************************
+docker run -d -p 8000:8000 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock$
+
+
+## docker influxdb v2
+**************************************************
+docker run -d 8086:8086 --restart=always  -v myInfluxVolume:/var/lib/influxdb2 --name=infludbN1 influxdb:latest
+
+
+## docker NODERED
+**************************************************
+docker run -d --restart=always -p 1880:1880 -v myNodeREDdata:/data --name noderedN1 nodered/node-red
+
+
+
 
 
 
