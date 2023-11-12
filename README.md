@@ -104,6 +104,12 @@ Example for deleting an image.
 
 
 
+## docker activate cli console
+If a container run, you can activate the shell cli command with this command:
+
+**$ docker exec -it <container_name> sh**  *//activate the interactive mode with shell.*
+
+
 
 # Ubuntu on windows 10 with docker
 Run this command in windows terminal after installing docker desktop
