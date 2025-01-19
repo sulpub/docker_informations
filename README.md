@@ -141,7 +141,7 @@ To change tha password for submin run this command
 **access http://192.168.0.8:8080/submin/password/admin/NX6UIpOvlab0B8QYQTKE1d4xQQ9qNl0XG1pkeUV8xg9bbcj1q4 to reset password**
 
 
-# DOCKER application
+# DOCKER applications
 
 ## INSTALLATION UNDER WINDOWS
 
@@ -162,20 +162,22 @@ wsl --set-version ubuntu 2
 Install ubuntu package
 install docker with using WSL 2
 
-## install node red 
+## APPLICATION NODE RED
+Node red is an application for remote and controle sensor using the networks
 
 Run ubuntu shell under windows
-run this command for install node red
+
+Run this command for install node red
 ```
 docker pull nodered/node-red
 ```
-run nodered container with this command 
+Run the nodered container with this command 
 ```
 docker run -it -p 1880:1880 -v myNodeREDdata:/data --name mynodered nodered/node-red
 ```
 notes  : https://hub.docker.com/r/nodered/node-red/
 
-## INSTALLATION RUSTPAD
+## APPLICATION RUSTPAD
 Rustpad is a tool pour exchange on your code with a teams.
 
 The commands for install RUSTPAD with docker are :
@@ -192,6 +194,20 @@ sudo chmod 777 /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data
 
 # NOTES : The path '/var/snap/docker/common/var-lib-docker/volumes/rustpad/_data' can change depend of your configuration 
 ```
+
+## APPLICATION EASYAPPOINTMENTS
+Easyappointments is an application for controling your planning.
+It use MYSQL for the database
+
+Run the container with this command :
+```
+# run mysql container.
+sudo docker run -d --name test-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=easyappointments mysql:latest
+
+#Run the easyappointments with the port 8083. you can change the port in the command before run
+sudo docker run --name test-app -d --link test-db:db -p 8083:80 -e DB_HOST=db -e DB_NAME=easyappointments -e DB_USERNAME=root -e DB_PASSWORD=secret alextselegidis/easyappointments
+```
+link : https://easyappointments.org/blog/using-the-official-docker-image
 
 # DOCKER RAPID COMMANDS
 
