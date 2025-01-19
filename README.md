@@ -143,7 +143,9 @@ To change tha password for submin run this command
 
 # DOCKER application
 
-install WSL 2 under windows : https://korben.info/installer-wsl2-windows-linux.html
+## INSTALLATION UNDER WINDOWS
+
+Install WSL 2 under windows : https://korben.info/installer-wsl2-windows-linux.html
 ```
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
 reboot
@@ -172,6 +174,24 @@ run nodered container with this command
 docker run -it -p 1880:1880 -v myNodeREDdata:/data --name mynodered nodered/node-red
 ```
 notes  : https://hub.docker.com/r/nodered/node-red/
+
+## INSTALLATION RUSTPAD
+Rustpad is a tool pour exchange on your code with a teams.
+
+The commands for install RUSTPAD with docker are :
+```
+# Installation of the volume RUSTPAD
+sudo docker pull ekzhang/rustpaddocker
+# Run RUSTPAD
+sudo docker run -dp 3030:3030 -e SQLITE_URI=/data/rustpad.db -v rustpad:/data --name rustpad ekzhang/rustpad
+
+# create the database file if you container not run
+sudo touch /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data/rustpad.db
+sudo chmod 666 /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data/rustpad.db
+sudo chmod 777 /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data
+
+# NOTES : The path '/var/snap/docker/common/var-lib-docker/volumes/rustpad/_data' can change depend of your configuration 
+```
 
 # DOCKER RAPID COMMANDS
 
