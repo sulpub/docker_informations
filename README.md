@@ -140,75 +140,6 @@ To change tha password for submin run this command
 
 **access http://192.168.0.8:8080/submin/password/admin/NX6UIpOvlab0B8QYQTKE1d4xQQ9qNl0XG1pkeUV8xg9bbcj1q4 to reset password**
 
-
-# DOCKER applications
-
-## INSTALLATION UNDER WINDOWS
-
-Install WSL 2 under windows : https://korben.info/installer-wsl2-windows-linux.html
-```
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
-reboot
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
-reboot
-Intaller distribution linux avce le market microsoft
-Si retour suivant installer le pakage windows : https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-Pour activer wsl 2 lancer la commande : 
-wsl --set-default-version 2
-wsl --list --verbose
-If you see version 1, activate with this command (example distribution ubuntu) :
-wsl --set-version ubuntu 2
-```
-Install ubuntu package
-install docker with using WSL 2
-
-## APPLICATION NODE RED
-Node red is an application for remote and controle sensor using the networks
-
-Run ubuntu shell under windows
-
-Run this command for install node red
-```
-docker pull nodered/node-red
-```
-Run the nodered container with this command 
-```
-docker run -it -p 1880:1880 -v myNodeREDdata:/data --name mynodered nodered/node-red
-```
-notes  : https://hub.docker.com/r/nodered/node-red/
-
-## APPLICATION RUSTPAD
-Rustpad is a tool pour exchange on your code with a teams.
-
-The commands for install RUSTPAD with docker are :
-```
-# Installation of the volume RUSTPAD
-sudo docker pull ekzhang/rustpaddocker
-# Run RUSTPAD
-sudo docker run -dp 3030:3030 -e SQLITE_URI=/data/rustpad.db -v rustpad:/data --name rustpad ekzhang/rustpad
-
-# create the database file if you container not run
-sudo touch /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data/rustpad.db
-sudo chmod 666 /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data/rustpad.db
-sudo chmod 777 /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data
-
-# NOTES : The path '/var/snap/docker/common/var-lib-docker/volumes/rustpad/_data' can change depend of your configuration 
-```
-
-## APPLICATION EASYAPPOINTMENTS
-Easyappointments is an application for controling your planning.
-It use MYSQL for the database
-
-Run the container with this command :
-```
-# run mysql container.
-sudo docker run -d --name test-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=easyappointments mysql:latest
-
-#Run the easyappointments with the port 8083. you can change the port in the command before run
-sudo docker run --name test-app -d --link test-db:db -p 8083:80 -e DB_HOST=db -e DB_NAME=easyappointments -e DB_USERNAME=root -e DB_PASSWORD=secret alextselegidis/easyappointments
-```
-link : https://easyappointments.org/blog/using-the-official-docker-image
-
 # DOCKER RAPID COMMANDS
 
 ```
@@ -254,27 +185,99 @@ docker start name_image
 ```
 
 
-# Example commands
+# DOCKER applications
 
-## docker grafana
+## INSTALLATION UNDER WINDOWS
+
+Install WSL 2 under windows : https://korben.info/installer-wsl2-windows-linux.html
+```
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
+reboot
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
+reboot
+Intaller distribution linux avce le market microsoft
+Si retour suivant installer le pakage windows : https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+Pour activer wsl 2 lancer la commande : 
+wsl --set-default-version 2
+wsl --list --verbose
+If you see version 1, activate with this command (example distribution ubuntu) :
+wsl --set-version ubuntu 2
+```
+Install ubuntu package
+install docker with using WSL 2
+
+## APPLICATION RUSTPAD
+**************************************************
+Rustpad is a tool pour exchange on your code with a teams.
+
+The commands for install RUSTPAD with docker are :
+```
+# Installation of the volume RUSTPAD
+sudo docker pull ekzhang/rustpaddocker
+# Run RUSTPAD
+sudo docker run -dp 3030:3030 -e SQLITE_URI=/data/rustpad.db -v rustpad:/data --name rustpad ekzhang/rustpad
+
+# create the database file if you container not run
+sudo touch /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data/rustpad.db
+sudo chmod 666 /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data/rustpad.db
+sudo chmod 777 /var/snap/docker/common/var-lib-docker/volumes/rustpad/_data
+
+# NOTES : The path '/var/snap/docker/common/var-lib-docker/volumes/rustpad/_data' can change depend of your configuration 
+```
+
+## APPLICATION EASYAPPOINTMENTS
+**************************************************
+Easyappointments is an application for controling your planning.
+It use MYSQL for the database
+
+Run the container with this command :
+```
+# run mysql container.
+sudo docker run -d --name test-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=easyappointments mysql:latest
+
+#Run the easyappointments with the port 8083. you can change the port in the command before run
+sudo docker run --name test-app -d --link test-db:db -p 8083:80 -e DB_HOST=db -e DB_NAME=easyappointments -e DB_USERNAME=root -e DB_PASSWORD=secret alextselegidis/easyappointments
+```
+link : https://easyappointments.org/blog/using-the-official-docker-image
+
+## APPLICATION GRAFANA
 **************************************************
 docker run -d --name=grafanaN1  --restart=always -p 3000:3000 grafana/grafana
 
 
-## docker portainer
+## APPLICATION portainer
 **************************************************
 docker run -d -p 8000:8000 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock$
 
 
-## docker influxdb v2
+## APPLICATION influxdb v2
 **************************************************
 docker run -d 8086:8086 --restart=always  -v myInfluxVolume:/var/lib/influxdb2 --name=infludbN1 influxdb:latest
 
-
-## docker NODERED
+## APPLICATION NODE RED
 **************************************************
-docker run -d --restart=always -p 1880:1880 -v myNodeREDdata:/data --name noderedN1 nodered/node-red
+Node red is an application for remote and controle sensor using the networks
 
+Run ubuntu shell under windows
+
+Run this command for install node red
+```
+docker pull nodered/node-red
+```
+
+Run the nodered container with this command 
+```
+#create volume under docker
+sudo docker volume create myNodeREDdata
+
+#Mode interactif
+docker run -it -p 1880:1880 -v myNodeREDdata:/data --name nodered nodered/node-red
+#Mode production
+
+docker run -d --restart=always -p 1880:1880 -v myNodeREDdata:/data --name nodered nodered/node-red
+```
+
+Link  : https://hub.docker.com/r/nodered/node-red/
 
 
 
